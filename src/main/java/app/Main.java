@@ -12,7 +12,7 @@ public class Main {
         TimeService service = new TimeService();
         Scanner scanner = new Scanner(System.in);
         try {
-            System.out.println("Enter number");
+            System.out.println("Enter numbers");
             long seconds = scanner.nextLong();
             System.out.println(service.convertFromSecondToHours(seconds));
         } catch (Exception ex){

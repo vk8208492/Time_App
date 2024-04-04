@@ -8,8 +8,6 @@ public class TimeService {
 
     public Time convertFromSecondToHours(long timeInSeconds) {
 
-        StringBuilder builder = new StringBuilder();
-
         Duration<ClockUnit> dur = Duration.of(timeInSeconds, ClockUnit.SECONDS).
                 with(Duration.STD_CLOCK_PERIOD);
 
