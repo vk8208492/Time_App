@@ -1,24 +1,23 @@
 package app.service;
 
+import app.utils.Time;
 import net.time4j.ClockUnit;
 import net.time4j.Duration;
 
 public class TimeService {
 
-    public String[] convertFromSecondToHours() {
+    public Time convertFromSecondToHours(long timeInSeconds) {
 
         StringBuilder builder = new StringBuilder();
 
-        Duration<ClockUnit> dur = Duration.of(34444, ClockUnit.SECONDS).
+        Duration<ClockUnit> dur = Duration.of(timeInSeconds, ClockUnit.SECONDS).
                 with(Duration.STD_CLOCK_PERIOD);
 
         // custom duration format => hh:mm:ss
         String str = Duration.Formatter.ofPattern(ClockUnit.class, "hh:mm:ss").format(dur);
-        System.out.println(str);
+        String[] values = str.split(":");
 
-        String[] values = convertFromSecondToHours();
-
-        return values;
+        return new Time(values[0],values[1],values[2]);
     }
 
 }
